@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Hello-World API Access logs</title>
+   <link href="/styles/bootstrap.min.css" rel="stylesheet">
+   <script src="/scripts/jquery-1.12.3.min.js"></script>
+   <script src="/scripts/bootstrap.min.js"></script>
+   <script>
+      $(document).ready(function() {
+	// Used JSONP implementation to over come Same Origin Policy issues
+         $.getJSON("http://localhost:8569/v1/hello-world/logs?callback=?", function(result){
+            var logs = result.logs;
+	    // Inflate fetched JSON data to HTML table
+            $.each(logs, function(index, value) {
+               $('#logs').append('<tr><td>' + value.ip + '</td><td>' + value.timestamp + '</td></tr>');
+            });
+         });
+      });
+   </script>
+</head>
+<body>
+<div class = "container">
+<h3>Hello-World API Access logs</h3>
+<table class = "table table-hover">
+   <thead>
+      <tr>
+         <th>IP Address</th>
+         <th>Timestamp</th>
+      </tr>
+   </thead>
+   <tbody id = "logs">
+   </tbody>
+</table>
+</div>
+</body>
+</html>

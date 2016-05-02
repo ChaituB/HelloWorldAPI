@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>API Access logs - Internal</title>
+   <link href="/styles/bootstrap.min.css" rel="stylesheet">
+   <script src="/scripts/jquery-1.12.3.min.js"></script>
+   <script src="/scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="jumbotron">
+            <h1>API Access logs</h1>
+            <p> This is a static, Nginx served application which calls Hello-World API (which is on node docker container) and displays the logs for <code>/v1/logs</code> and <code>/v1/hello-world/logs</code> endpoints. It uses JavaScript Ajax calls to call the API and display the results.</p>
+        </header>
+	<section>
+	<ul class="list-group">
+		<li class="list-group-item">
+			<h3 class="list-group-item-heading">Hello-World Logs</h3>
+			<p class="list-group-item-text">This page asynchronously calls <code>/v1/hello-world/logs</code> API and displays the access log (IP, and Unix Timestamp) for <code>/v1/hello-world</code> endpoint.</p>
+			<a class="btn btn-secondary" href = "/v1/hello-world/logs" >VISIT /v1/hello-world/logs</a>
+		</li>
+		<li class="list-group-item">
+			<h3 class="list-group-item-heading">All Access Logs</h3>
+			<p class="list-group-item-text">This page asynchronously calls <code>/v1/logs</code> API and displays the access log (Endpoint, IP, and Unix Timestamp) for <code>/v1/*</code> endpoints.</p>
+			<a class="btn btn-secondary" href = "/v1/logs" >VISIT /v1/logs</a>
+		</li>
+	</ul>
+	<p>Any call to the page other than the above said two redirects to this (HomePage).</p>
+	</section>
+    </div>
+</body>
+</html>

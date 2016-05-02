@@ -1,0 +1,14 @@
+{
+	"name": "apiserver",
+	"version": "1.0.0",
+	"description":"Hello World API Server",
+	"author":"Chaitanya Bellam <cbellam@uncc.edu>",
+	"main": "apiserver.js",
+	"scripts": {
+		"start": "node apiserver.js"
+	},
+	"dependencies": {
+		"express": "~4.13.0",
+		"redis": "2.6.0-2"
+	}
+}

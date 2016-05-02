@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>API Access logs</title>
+   <link href="/styles/bootstrap.min.css" rel="stylesheet">
+   <script src="/scripts/jquery-1.12.3.min.js"></script>
+   <script src="/scripts/bootstrap.min.js"></script>
+   <script>
+      $(document).ready(function() {
+	// Used JSONP implementation to over come Same Origin Policy issues
+         $.getJSON("http://localhost:8569/v1/logs?callback=?", function(result){
+            var logset = result.logset;
+	    // Inflate fetched JSON data to HTML table
+            $.each(logset, function(index, value) {
+               $.each(value.logs, function(i, logs) {
+                  $('#logs').append('<tr><td>' + 
+                     value.endpoint + '</td><td>' + 
+                     logs.ip + '</td><td>' + 
+                     logs.timestamp + '</td></tr>'
+                  );
+               });
+            });
+         });
+      });
+   </script>
+</head>
+<body>
+<div class = "container">
+<h3>API Access logs</h3>
+<table class = "table table-hover">
+   <thead>
+      <tr>
+         <th>EndPoint</th>
+         <th>IP Address</th>
+         <th>Timestamp</th>
+      </tr>
+   </thead>
+   <tbody id = "logs">
+   </tbody>
+</table>
+</div>
+</body>
+</html>

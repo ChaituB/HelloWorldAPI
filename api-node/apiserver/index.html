@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello-World API Home</title>
+    <link href="/styles/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="jumbotron">
+            <h1>Hello-World REST API</h1>
+            <p>This is a stateless RESTlike Hello-World API which returns <code>{"message": "hello world"}</code>.</p>
+        </header>
+	<section>
+		<h2>Public EndPoints</h2>
+		<ul class="list-group">
+			<li class="list-group-item">
+				<h3 class="list-group-item-heading">GET /v1/hello-world</h3>
+				<p class="list-group-item-text">Returns JSON object <code>{"message": "hello world"}</code></p>
+			</li>
+		</ul>
+		<br>		
+		<h2>Private EndPoints</h2>
+		<ul class="list-group">
+			<li class="list-group-item">
+				<h3 class="list-group-item-heading">GET /v1/logs</h3>
+				<p class="list-group-item-text">Returns JSON object <code>{"logs": [{"ip": "", "timestamp":""}]}</code></p>
+			</li>
+			<li class="list-group-item">
+				<h3 class="list-group-item-heading">GET /v1/hello-world/logs</h3>
+				<p class="list-group-item-text">Returns JSON object <code>{"logset": [{"endpoint": "", "logs": [{"ip": "", "timestamp":""}]}]}</code></p>
+			</li>
+		</ul>
+		<br>
+		<h2>Other EndPoints</h2>
+		<ul class="list-group">
+			<li class="list-group-item">
+				<p class="list-group-item-text">For all the other endpoints and http methods, it returns JSON error object <code>{"error": "resource not found"}</code></p>
+			</li>
+		</ul>
+	</section>
+    </div>
+</body>
+</html>
